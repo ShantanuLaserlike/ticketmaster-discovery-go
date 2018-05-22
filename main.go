@@ -12,8 +12,9 @@ func main() {
 		BaseUrl("http://app.ticketmaster.com").
 		Logging(true).
 		Build()
-
-	params := map[string]string{disco.GEOPOINT: "9q8yyh8",disco.SIZE:"1"}
+// We can pass the parameters available in eventSearchParams to customise our search. Here I have used a few
+// to keep the search narrowed to a given location
+	params := map[string]string{disco.GEOPOINT: "9q8yyh8",disco.SIZE:"1",disco.RADIUS:"1",disco.UNIT:"miles"}
 	eventResults, err := discoGateway.SearchEvents(params)
 
 	logErr(err)
