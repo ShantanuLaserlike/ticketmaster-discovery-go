@@ -13,7 +13,7 @@ func main() {
 		Logging(true).
 		Build()
 
-	params := map[string]string{disco.KEYWORD: "Bruno mars"}
+	params := map[string]string{disco.GEOPOINT: "9q8yyh8",disco.SIZE:"1"}
 	eventResults, err := discoGateway.SearchEvents(params)
 
 	logErr(err)

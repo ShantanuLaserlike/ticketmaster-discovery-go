@@ -80,4 +80,16 @@ const (
 	SEGMENT_NAME = "segmentName"
 
 	DMA_ID = "dmaId"
+
+	// This is where my code starts
+	// geoPoint uses geohash code for fetching the lat-long location
+	GEOPOINT = "geoPoint"
+
+	// Popularity boost by country, default is US.
+	PREFERRED_COUNTRY = "preferredCountry"
+
+	//Checks for spelling -> yes, to include spell check suggestions in the response.
+	INCLUDE_SPELLCHECK = "includeSpellcheck"
+
+
 )
