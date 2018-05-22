@@ -23,7 +23,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"fmt"
-	"github.com/pkg/errors"
+	//"github.com/pkg/errors"
+	"errors"
 	"strings"
 )
 
