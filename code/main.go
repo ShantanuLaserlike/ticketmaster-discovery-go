@@ -1,4 +1,5 @@
-package main
+//package main
+package code
 
 import (
 	"log"
@@ -6,7 +7,7 @@ import (
 	"./disco"
 )
 
-func main() {
+func Maincall(state_name, pg_no, event_count string) (int) {
 	discoGateway := disco.NewBuilder().
 		ApiKey("0yEuZlGBOMb2AAYs4XeaRDpmIaaDqLWB").
 		BaseUrl("http://app.ticketmaster.com").
@@ -14,8 +15,10 @@ func main() {
 		Build()
 // We can pass the parameters available in eventSearchParams to customise our search. Here I have used a few
 // to keep the search narrowed to a given location
-	params := map[string]string{disco.GEOPOINT: "9q8yyh8",disco.SIZE:"1",disco.RADIUS:"1",disco.UNIT:"miles"}
-	eventResults, err := discoGateway.SearchEvents(params)
+	//log.Println(pg_no)
+	params := map[string]string{disco.STATE_CODE:state_name, disco.SIZE:event_count, disco.PAGE:pg_no}
+	//params := map[string]string{disco.GEOPOINT: "9q8yyh8",disco.SIZE:event_count,disco.RADIUS:"1",disco.UNIT:"miles",disco.PAGE:pg_no}
+	eventResults, err, pg_limit := discoGateway.SearchEvents(params)
 
 	logErr(err)
 
@@ -43,6 +46,8 @@ func main() {
 
 	logErr(err5)
 	log.Println(topPicksResults)
+
+	return pg_limit
 
 }
 
