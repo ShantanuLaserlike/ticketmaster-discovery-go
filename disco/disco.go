@@ -173,9 +173,6 @@ func (e discoveryGateway) SearchEvents(params map[string]string) (*EventSearchRe
 		log.Println(err.Error())
 		return nil, err, hardcoat
 	}
-	// delete this once debugging completes
-	//fmt.Println("_________________________________________________________________________")
-	//fmt.Println(results.Page.TotalElements)
 	return &results, nil, results.Page.TotalElements
 }
 
