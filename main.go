@@ -8,16 +8,16 @@ import (
 
 func main() {
 	discoGateway := disco.NewBuilder().
-		ApiKey("0yEuZlGBOMb2AAYs4XeaRDpmIaaDqLWB").
+		ApiKey("my key").
 		BaseUrl("http://app.ticketmaster.com").
 		Logging(true).
 		Build()
-		
-	params := map[string]string{disco.GEOPOINT: "9q8yyh8",disco.SIZE:"1",disco.RADIUS:"1",disco.UNIT:"miles"}
-	eventResults, err , elements:= discoGateway.SearchEvents(params)
+
+	params := map[string]string{disco.KEYWORD: "Bruno mars"}
+	eventResults, err := discoGateway.SearchEvents(params)
 
 	logErr(err)
-	log.Println(elements)
+
 	log.Println(eventResults)
 	log.Println(len(eventResults.EmbeddedEvents.Events))
 
