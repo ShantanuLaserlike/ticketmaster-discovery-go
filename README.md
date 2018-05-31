@@ -6,7 +6,7 @@ Usage:
 
 Grab the package:
 
-`go get github.com/patjackson52/ticketmaster-discovery-go/disco`
+`go get github.com/ShantanuLaserlike/ticketmaster-discovery-go/disco`
 
 Create a `DiscoveryGateway` instance with the builder, then fetch results with SearchEvents()
 
