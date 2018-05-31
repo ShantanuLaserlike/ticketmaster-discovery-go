@@ -23,7 +23,6 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"fmt"
-	//"github.com/pkg/errors"
 	"errors"
 	"strings"
 )
@@ -32,7 +31,6 @@ import (
  * Interface for all Discovery Api endpoints
  */
 type DiscoveryGateway interface {
-	//SearchEvents(params map[string]string) (*EventSearchResult, error, int)
 	SearchEvents(params map[string]string) (*EventSearchResult, error)
 	GetEventDetails(eventId string) (*Event, error)
 	SearchAttractions(params map[string]string) (*AttractionSearchResult, error)
@@ -159,12 +157,11 @@ func (d discoveryGateway) doGetRequest(path string, params map[string]string) ([
 	return body, nil
 }
 
-func (e discoveryGateway) SearchEvents(params map[string]string) (*EventSearchResult, error/*, int*/) {
+func (e discoveryGateway) SearchEvents(params map[string]string) (*EventSearchResult, error) {
 	params["view"] = "internal"
-	//hardcoat := -1
 	body, err := e.doGetRequest("/discovery/v2/events/", params)
 	if err != nil {
-		return nil, err//, hardcoat
+		return nil, err
 	}
 
 	var results EventSearchResult = EventSearchResult{}
@@ -172,9 +169,9 @@ func (e discoveryGateway) SearchEvents(params map[string]string) (*EventSearchRe
 	jsonErr := json.Unmarshal(body, &results)
 	if jsonErr != nil {
 		log.Println(err.Error())
-		return nil, err//, hardcoat
+		return nil, err
 	}
-	return &results, nil//, results.Page.TotalElements
+	return &results, nil
 }
 
 func (d discoveryGateway) SearchAttractions(params map[string]string) (*AttractionSearchResult, error) {
