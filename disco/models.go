@@ -87,6 +87,7 @@ type Event struct {
 	Url             string           `json:"url"`
 	Local           string           `json:"locale"`
 	Images          []Image          `json:"images"`
+	Distance        float32          `json:"distance"`
 	Sales           Sales            `json:"sales"`
 	Dates           Dates            `json:"dates"`
 	Classifications []Classification `json:"classifications"`

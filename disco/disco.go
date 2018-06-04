@@ -18,12 +18,12 @@ log.Println(results)
 package disco
 
 import (
-	"net/http"
-	"log"
 	"encoding/json"
-	"io/ioutil"
-	"fmt"
 	"errors"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
 	"strings"
 )
 
@@ -75,9 +75,9 @@ func (b *discoveryGatewayBuilder) Logging(enabled bool) DiscoGatewayBuilder {
 
 func (b *discoveryGatewayBuilder) Build() DiscoveryGateway {
 	return &discoveryGateway{
-		apiKey:   b.apiKey,
-		baseUrl:  b.baseUrl,
-		log: b.logLevel}
+		apiKey:  b.apiKey,
+		baseUrl: b.baseUrl,
+		log:     b.logLevel}
 }
 
 func NewBuilder() DiscoGatewayBuilder {
@@ -144,7 +144,7 @@ func (d discoveryGateway) doGetRequest(path string, params map[string]string) ([
 		return nil, err
 	}
 
-	if d.log  {
+	if d.log {
 		fmt.Println(string(body))
 	}
 
@@ -253,7 +253,6 @@ func (d discoveryGateway) GetInventoryStatusDetails(eventIds []string) (*[]Inven
 	}
 
 	fmt.Println(string(body))
-
 
 	var results []InventoryStatus
 
