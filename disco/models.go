@@ -97,6 +97,7 @@ type Event struct {
 	PriceRages      []PriceRange     `json:"priceRanges"`
 	Source          Source           `json:"source"`
 	References      References       `json:"references"`
+	Embedded        Embedded         `json:"_embedded"`
 }
 
 type Source struct {
