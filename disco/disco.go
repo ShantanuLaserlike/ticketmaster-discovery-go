@@ -166,8 +166,8 @@ func (e discoveryGateway) SearchEvents(params map[string]string) (*EventSearchRe
 
 	var results EventSearchResult = EventSearchResult{}
 
-	jsonErr := json.Unmarshal(body, &results)
-	if jsonErr != nil {
+	err = json.Unmarshal(body, &results)
+	if err != nil {
 		log.Println(err.Error())
 		return nil, err
 	}
