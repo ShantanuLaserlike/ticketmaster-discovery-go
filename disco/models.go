@@ -37,9 +37,9 @@ type DateInfo struct {
 	LocalDate      string `json:"localDate"`
 	LocalTime      string `json:"localTime"`
 	DateTime       string `json:"dateTime"`
-	DateTBD        string `json:"dateTBD"`
-	DateTBA        string `json:"dateTBA"`
-	NoSpecificTime string `json:"noSpecificTime"`
+	DateTBD        bool   `json:"dateTBD"`
+	DateTBA        bool   `json:"dateTBA"`
+	NoSpecificTime bool   `json:"noSpecificTime"`
 }
 
 type Status struct {
