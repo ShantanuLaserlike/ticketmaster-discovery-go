@@ -84,7 +84,7 @@ type Event struct {
 	Name            string           `json:"name"`
 	Type            string           `json:"type"`
 	Id              string           `json:"id"`
-	Test            bool           `json:"test"`
+	Test            bool             `json:"test"`
 	Url             string           `json:"url"`
 	Local           string           `json:"locale"`
 	Images          []Image          `json:"images"`
