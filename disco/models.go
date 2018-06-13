@@ -96,16 +96,16 @@ type Event struct {
 	Promoter        Promoter         `json:"promoter"`
 	Promoters       []Promoter       `json:"promoters"`
 	SeatMap         SeatMap          `json:"seatmap"`
-	Links 			Links 			 `json:"_links"`
+	Links           Links            `json:"_links"`
 	Info            string           `json:"info"`
 	PleaseNote      string           `json:"pleaseNote"`
-	PriceRanges      []PriceRange    `json:"priceRanges"`
+	PriceRanges     []PriceRange     `json:"priceRanges"`
 	Source          Source           `json:"source"`
 	References      References       `json:"references"`
 	Embedded        Embedded         `json:"_embedded"`
 }
 
-type seatmap string {
+type SeatMap struct {
 	StaticUrl string `json:"staticUrl"`
 }
 
