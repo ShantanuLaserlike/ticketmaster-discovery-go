@@ -16,7 +16,7 @@ type EmbeddedEvents struct {
 	Events []Event `json:"events"`
 }
 
-type PublicRe struct {
+type Public struct {
 	StartDateTime string `json:"startDateTime"`
 	StartTBD      string `json:"startTDB"`
 	EndDateTime   string `json:"endDateTime"`
@@ -29,7 +29,7 @@ type Presales struct {
 }
 
 type Sales struct {
-	PublicRe PublicRe   `json:"public"`
+	PublicRe Public     `json:"public"`
 	Presales []Presales `json:"presales"`
 }
 
