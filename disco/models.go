@@ -29,7 +29,7 @@ type Presales struct {
 }
 
 type Sales struct {
-	PublicRe PublicRe   `json:"publicRe"`
+	PublicRe PublicRe   `json:"public"`
 	Presales []Presales `json:"presales"`
 }
 
@@ -55,10 +55,11 @@ type Image struct {
 }
 
 type Dates struct {
-	StartDateInfo DateInfo `json:"startDateInfo"`
-	EndDateInfo   DateInfo `json:"endDateInfo"`
-	TimeZone      string   `json:"timezone"`
-	Status        Status   `json:"status"`
+	Start            DateInfo `json:"start"`
+	End              DateInfo `json:"end"`
+	TimeZone         string   `json:"timezone"`
+	Status           Status   `json:"status"`
+	SpanMultipleDays bool     `json:"spanMultipleDays"`
 }
 
 type Promoter struct {
@@ -80,24 +81,32 @@ type Self struct {
 }
 
 type Event struct {
-	Name string `json:"name"`
-	Type string `json:"type"`
-	Id   string `json:"id"`
-	//Test            string           `json:"test"`
+	Name            string           `json:"name"`
+	Type            string           `json:"type"`
+	Id              string           `json:"id"`
+	Test            string           `json:"test"`
 	Url             string           `json:"url"`
 	Local           string           `json:"locale"`
 	Images          []Image          `json:"images"`
 	Distance        float32          `json:"distance"`
+	Unit            string           `json:"units"`
 	Sales           Sales            `json:"sales"`
 	Dates           Dates            `json:"dates"`
 	Classifications []Classification `json:"classifications"`
 	Promoter        Promoter         `json:"promoter"`
+	Promoters       []Promoter       `json:"promoters"`
+	SeatMap         SeatMap          `json:"seatmap"`
+	Links 			Links 			 `json:"_links"`
 	Info            string           `json:"info"`
-	PleaseNore      string           `json:"pleaseNote"`
-	PriceRages      []PriceRange     `json:"priceRanges"`
+	PleaseNote      string           `json:"pleaseNote"`
+	PriceRanges      []PriceRange    `json:"priceRanges"`
 	Source          Source           `json:"source"`
 	References      References       `json:"references"`
 	Embedded        Embedded         `json:"_embedded"`
+}
+
+type seatmap string {
+	StaticUrl string `json:"staticUrl"`
 }
 
 type Source struct {
@@ -220,6 +229,7 @@ type Classification struct {
 	SubGenre SubGenre `json:"subGenre"`
 	Type     Type     `json:"type"`
 	SubType  SubType  `json:"subType"`
+	Family   bool     `json:"family"`
 }
 
 type Attraction struct {
